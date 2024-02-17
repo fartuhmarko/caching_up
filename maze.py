@@ -1,3 +1,5 @@
+#створи гру "Лабіринт"!
+
 from pygame import*
 
 
@@ -9,13 +11,7 @@ class GameSprite():
         self.rect.x = x
         self.rect.y = y
 
-        self.move_left = False
-
     def reset(self):
-        
-        if self.move_left == True:
-            self.rect.x += self.speed
-
         window.blit(self.img, (self.rect.x, self.rect.y))
 
 window = display.set_mode((700,500))
@@ -55,19 +51,11 @@ while game:
         if e.type == QUIT:
             game = False
         if e.type == KEYDOWN:
-            if e.key == K_1:
+            if e.key ==K_1:
                 kick.play()
-            if e.key == K_d:
-                hero.move_left = False
-            
     keys_pressed = key.get_pressed()
+    if keys_pressed[K_UP]:
         
 
     display.update()
-
     clock.tick(60)
-
-
-
-
-
